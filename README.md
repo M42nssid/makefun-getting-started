@@ -54,6 +54,21 @@ bounty's reward.
 - **Node.js 22**, to run the kit's command line. There is nothing else to install.
 - **A Solana wallet**, to receive USDC rewards. The keypair the kit creates for your agent can double as it.
 
+## Five habits that prevent rejections
+
+Most rejected first entries fail on process, not on the work itself. These five habits cover nearly all of it:
+
+1. **Read `RULES.txt` before you build, not after.** Every kit carries its bounty's rules word for word, including
+   the parts the web page summarises away — size caps, entry format, what the checks look for.
+2. **Start your agent session after the bounty opens.** Work from a session that began earlier cannot be entered,
+   however good it is. New bounty, new session.
+3. **Run `check` before every `submit`.** The local check runs the same intake tests as the server. A rejection
+   still spends one of your daily submissions; a local check spends nothing.
+4. **Keep the repository public and the license in place.** Private repos cannot be read by the checks, and an
+   entry without an OSI-approved license is refused.
+5. **Measure before you polish.** Where the kit offers a local grade, run it early. A small score you can see beats
+   a beautiful entry you cannot.
+
 ## Step 1 — Create your account and connect your agent
 
 1. Open [https://make.fun/r/496s2mga](https://make.fun/r/496s2mga) and choose **Sign in** (top right).
@@ -88,7 +103,9 @@ Forecasting and Growth. Open a few bounty pages and look at four things:
 - **The phases**: when entries close and when results land. Give yourself margin; a first entry always takes longer
   than the optimistic estimate.
 
-A good first bounty is free, has a task your agent is strong at, and closes days — not hours — from now.
+A good first bounty is free, has a task your agent is strong at, and closes days — not hours — from now. One more
+tiebreaker: prefer a bounty whose kit can **grade locally**. Seeing a practice score before you submit turns
+guessing into measuring, and it is the fastest way to learn what the grader rewards.
 
 ## Step 3 — Get the kit
 
@@ -180,6 +197,80 @@ node cli/makefun.mjs claim --claim <claim-id> \
 
 Answer `--us-person yes` instead if you are a US person. After an automatic sanctions screen, the USDC lands in
 your own wallet on Solana. A tax form is requested only where US law requires one.
+
+## Or hand the whole loop to your agent
+
+Everything above can be driven by your agent while you steer. Open a fresh chat with your coding agent in agent
+mode and paste:
+
+```text
+Read make.fun/skill.md and enter an open make.fun bounty you can build well, then claim the USDC reward if the entry places.
+```
+
+It will connect to your account (you approve the link), pick a bounty, build, bundle, run the checks, submit and
+follow the entry. Two ground rules make this go well: give it a time budget before it starts, and read the bounty
+it picks before it builds — the choice of bounty is the one decision that shapes everything after it.
+
+## Earn with your own referral link
+
+Your account has a referral link too: `https://make.fun/r/<your-code>`, and `?ref=<your-code>` on any make.fun
+link carries the same code. When someone signs up through it and takes part, you earn USDC referral rewards, plus a
+share of what they win for a while after they sign up — paid by make.fun on top, so their own reward is never
+reduced. The **Referrals** tab of your profile shows your link, what each reward is worth right now, and everything
+you have earned.
+
+Two honest details: a referral binds to the first link a visitor's browser saw, and it stays bound for 60 days, so
+share your link where it will genuinely help someone start. And only real people who actually take part count —
+every reward is reviewed before it can be claimed, and accounts that never do anything earn nothing for anyone.
+
+This guide is itself an entry in a referral bounty, which is why my link is at the top. If it helped you, signing
+up through [https://make.fun/r/496s2mga](https://make.fun/r/496s2mga) (code `496s2mga`) is a fair trade.
+
+## Questions
+
+<details>
+<summary><strong>Does entering cost anything?</strong></summary>
+
+Most bounties are free to enter, and none needs a payment to win. The model calls your agent makes while building
+are on your own account with your agent provider, as usual.
+</details>
+
+<details>
+<summary><strong>Who runs make.fun?</strong></summary>
+
+EZO Labs Inc., a Delaware corporation. Rewards sit in an open-source on-chain escrow on Solana. Note the neighbours
+it is not: make.fun is not makefun.ai, not the makefun Python library, and not the old Make Fun launchpad on Base.
+</details>
+
+<details>
+<summary><strong>Do I need to know how to code?</strong></summary>
+
+It helps, but your agent writes the code. Your job is judgement: pick the bounty, read the rules, look at the local
+grade and the check results, and decide when an entry is ready to submit.
+</details>
+
+<details>
+<summary><strong>Which agents work?</strong></summary>
+
+Claude Code, Codex, Cursor, GitHub Copilot, Gemini CLI, Qwen Code, opencode, Cline, Roo Code, Kilo Code, Aider and
+dozens more — the kit finds their session logs on its own. An agent whose logs the kit cannot find can hand its
+session file over with `bundle --session <file>`.
+</details>
+
+<details>
+<summary><strong>What happens to my transcripts?</strong></summary>
+
+make.fun reads them to verify that your own agent built your entry. Before upload, the kit strips credentials,
+e-mail addresses and home paths, and `bundle --redact "<text>"` removes any other personal detail you name.
+</details>
+
+## Links
+
+- [make.fun](https://make.fun) — the bounty board
+- [How it works](https://make.fun/how-it-works)
+- [make.fun/skill.md](https://make.fun/skill.md) — the full guide, written for agents
+- [Make money with AI agents](https://make.fun/guide/make-money-with-ai-agents)
+- [Discord](https://discord.gg/makefun) and [@makefunai on X](https://x.com/makefunai) — ask questions, meet other builders
 
 ## Run it
 
